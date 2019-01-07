@@ -7,5 +7,6 @@ var host = args[0] || "ws://localhost";
 var port = args[1] || "8546";
 
 module.exports = {
-    "wsURL" : host + ":" + port
+    "wsURL" : host + ":" + port,
+    "args"  : args
 }

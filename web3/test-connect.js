@@ -1,4 +1,3 @@
-
 /**
  * Created by lebamui on 07/01/2019.
  */
@@ -9,11 +8,12 @@ function testConnect(cb) {
     var web3 = new Web3();
     web3.setProvider(wsprovider);
     web3.eth.net.isListening()
-        .then(function () {
-            cb(true);
+        .then(function (ws) {
+            console.log(ws);
+            cb(undefined, true);
         })
-        .catch(function (e) {
-            cb(false);
+        .catch(function (error) {
+            cb(error);
         });
 }
 
