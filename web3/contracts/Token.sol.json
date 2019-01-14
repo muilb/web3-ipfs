@@ -1,0 +1,53 @@
+{
+  "contracts": [
+    {
+      "contract": "Token",
+      "bytecode": "608060405234801561001057600080fd5b50610126806100206000396000f30060806040526004361060485763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166312065fe08114604d57806327e235e3146094575b600080fd5b348015605857600080fd5b50605f60d1565b6040805173ffffffffffffffffffffffffffffffffffffffff9094168452602084019290925282820152519081900360600190f35b348015609f57600080fd5b5060bf73ffffffffffffffffffffffffffffffffffffffff6004351660e8565b60408051918252519081900360200190f35b336000818152602081905260409020548131909192565b600060208190529081526040902054815600a165627a7a723058200e003e6a2a560c5ba9f971d7b6cb7fcc196b31c6aa7e147478ac10c4b58696e30029",
+      "abi": [
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getBalance",
+          "outputs": [
+            {
+              "name": "",
+              "type": "address"
+            },
+            {
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [
+            {
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "balances",
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

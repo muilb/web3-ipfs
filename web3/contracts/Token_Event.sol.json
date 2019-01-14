@@ -1,0 +1,38 @@
+{
+  "contracts": [
+    {
+      "contract": "Token",
+      "bytecode": "6080604052348015600f57600080fd5b5060ba8061001e6000396000f300608060405260043610603e5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166312065fe081146043575b600080fd5b348015604e57600080fd5b5060556057565b005b60408051338031825291517f2ee5108edf1b0cacb02ca5dd70ace75f5f6acba366cfe64a64b126815c5473a99181900360200190a25600a165627a7a723058202d2d34fbe964750c9c1ef56cadebaea8af712c121856565e49b3fe61d209d0550029",
+      "abi": [
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "getBalance",
+          "outputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "balance",
+              "type": "uint256"
+            }
+          ],
+          "name": "GetBalance",
+          "type": "event"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

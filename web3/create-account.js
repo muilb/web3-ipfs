@@ -10,6 +10,6 @@ function createAccount(cb) {
     web3.setProvider(wsprovider);
     // get agr at 2 index
     // var accountType = config.args[2];
-    web3.eth.personal.newAccount('testpass', cb); // cb with address return
+    web3.eth.personal.newAccount('testpass').then(cb);
 }
 module.exports = createAccount;

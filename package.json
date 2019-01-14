@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "test_create": "node ./web3/ipfs_test/create-index-elastic.js"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "debug": "~2.2.0",
+    "elasticsearch": "^11.0.1",
     "moment": "^2.15.1",
+    "secp256k1": "^3.6.1",
+    "solc": "^0.4.25",
     "web3": "^1.0.0-beta.37"
   }
 }
