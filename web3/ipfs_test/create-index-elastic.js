@@ -6,6 +6,7 @@ const moment = require('moment');
 const secp256k1 = require('secp256k1');
 const { randomBytes } = require('crypto');
 const newContract = require('./contract');
+const logsError = require('./logs-err');
 const index = require('../elastic/index-contract');
 const config = require('../../config/config');
 const contractNum = config.contractNum;
@@ -40,7 +41,13 @@ function createAndIndex(i) {
         }
         console.log('created at:\t', moment.utc().toISOString(), '\tIndexing ...');
         index(body, function (err, res) {
-            console.log('Indexed ', err || 'Ok');
+            if (err) {
+                console.log('Index contract\t', body.address, '\terror. See logs file');
+                /** Make logs*/
+                logsError(body);
+            } else {
+                console.log('Indexed\t', body.address);
+            }
             if (i++ < contractNum) {
                 createAndIndex(i);
             } else {

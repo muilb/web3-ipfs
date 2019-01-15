@@ -1,0 +1,2 @@
+Run on May Danh:
+sudo  docker run -it --rm -e WS_HOST="ws://192.168.178.20" -e WS_PORT="8545" -e ES_HOST="130.149.110.158" -e ES_PORT="8201" -e ETH_ACCOUNT="0xa1adba90566eb782f11bc53ac62108acc0a99dc7" -e CONTRACT_NUM=2 --name ipfs muileba/web3-ipfs-arm32v7:contract

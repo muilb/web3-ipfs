@@ -1,16 +1,24 @@
 for arm:
 sudo docker build -t web3-ipfs-arm32v7 .
 
-sudo docker tag web3-ipfs-arm32v7 gcr.io/orbital-anchor-818/web3-ipfs-arm32v7:contract
+sudo docker tag web3-ipfs-arm32v7 gcr.io/orbital-anchor-818/web3-ipfs-arm32v7:node-8
 
 Push to gcr:
 
 sudo gcloud docker -- push gcr.io/orbital-anchor-818/web3-ipfs-arm32v7:node-8
 
+Push to docker hub
+
+docker login --username=muileba
+1234567a@
+sudo docker tag web3-ipfs-arm32v7 muileba/web3-ipfs-arm32v7:contract
+docker push muileba/web3-ipfs-arm32v7:contract
+
+
 
 run with env:
 
-sudo  docker run -it --rm --name ipfs -e WS_HOST="ws://localhost" -e WS_PORT="8546" -e ES_HOST="localhost" -e ES_PORT="9200" -e ETH_ACCOUNT="0x74C86a188Adce531A66aa497A5A2c027a3930BE3" -e CONTRACT_NUM=1 web3-ipfs-arm32v7:contract
+sudo  docker run -it --rm -e WS_HOST="ws://localhost" -e WS_PORT="8546" -e ES_HOST="localhost" -e ES_PORT="9200" -e ETH_ACCOUNT="0x74C86a188Adce531A66aa497A5A2c027a3930BE3" -e CONTRACT_NUM=1 --name ipfs web3-ipfs-arm32v7:node-8
 
 
 
