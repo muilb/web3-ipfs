@@ -1,0 +1,20 @@
+for arm:
+sudo docker build -t web3-ipfs-arm32v7 .
+
+sudo docker tag web3-ipfs-arm32v7 gcr.io/orbital-anchor-818/web3-ipfs-arm32v7:contract
+
+Push to gcr:
+
+sudo gcloud docker -- push gcr.io/orbital-anchor-818/web3-ipfs-arm32v7:node-8
+
+
+run with env:
+
+sudo  docker run -it --rm --name ipfs -e WS_HOST="ws://localhost" -e WS_PORT="8546" -e ES_HOST="localhost" -e ES_PORT="9200" -e ETH_ACCOUNT="0x74C86a188Adce531A66aa497A5A2c027a3930BE3" -e CONTRACT_NUM=1 web3-ipfs-arm32v7:contract
+
+
+
+
+
+
+sudo docker run -it --rm --name pi -v $HOME/Ethereum:/root -p 8545:8545 -p 30001:30001 muileba/pi-ubuntu-eth:1.7.3 geth --password /root/data/pi.txt --unlock 0 --identity "pi" --datadir /root/data --ethash.dagdir /root/data --networkid "143" --nodiscover --ipcdisable --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --port 30001 --verbosity 2 --bootnodes "enode://f2fb77ed36510261e3fdd350b6d132672173d7716bb846bd222fb750721d242a19ccded5fd0bde1deecefcf5f95183cf0c456c7199241b9b3531f6d9e5edf287@[192.168.178.20]:30001?discport=0" console

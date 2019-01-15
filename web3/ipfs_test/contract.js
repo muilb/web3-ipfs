@@ -6,8 +6,9 @@ const moment = require('moment');
 const solc = require('solc');
 const Web3 = require('web3');
 const wsprovider = require("../providers").wsprovider;
+const config = require('../../config/config');
+
 var ipfshashCompiled = require('../contracts/Ipfshash.sol.json');
-var config = require('../../config/config');
 var abi = ipfshashCompiled.contracts[0].abi;
 var bytecode = "0x" + ipfshashCompiled.contracts[0].bytecode;
 

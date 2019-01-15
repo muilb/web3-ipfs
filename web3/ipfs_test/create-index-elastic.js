@@ -6,22 +6,23 @@ const moment = require('moment');
 const secp256k1 = require('secp256k1');
 const { randomBytes } = require('crypto');
 const newContract = require('./contract');
-const index = require('../elastic/index-contract')
-var args = process.argv.slice(2);
-console.log("*************TEST IPFS****************\n");
-console.log("\tCREATE NEWS CONTRACT\t", args[0], ' contract');
+const index = require('../elastic/index-contract');
+const config = require('../../config/config');
+const contractNum = config.contractNum;
+// var args = process.argv.slice(2);
+console.log("\tCREATING NEWS CONTRACT\t", contractNum, ' contract');
 
-var total = args[0] || 10;
-for (var i=1; i< total; i++) {
-    createAndIndex();
-}
+createAndIndex(0);
 
-function createAndIndex() {
+function createAndIndex(i) {
     let privateKey;
     do {
         privateKey = randomBytes(32);
     } while (!secp256k1.privateKeyVerify(privateKey));
     let hash = privateKey.toString('hex');
+
+    console.log('Start creating contract\t', i);
+
     newContract(hash, function (err, res) {
         if (err) {
             console.log('Create error\n');
@@ -39,7 +40,13 @@ function createAndIndex() {
         }
         console.log('created at:\t', moment.utc().toISOString(), '\tIndexing ...');
         index(body, function (err, res) {
-            console.log('Indexed ');
+            console.log('Indexed ', err || 'Ok');
+            if (i++ < contractNum) {
+                createAndIndex(i);
+            } else {
+                console.log('End test');
+                process.exit(0);
+            }
         });
     });
 }

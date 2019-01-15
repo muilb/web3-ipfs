@@ -6,7 +6,6 @@ require('./contract')("onlycheck", function (err, res) {
         console.log(err);
         return;
     } else {
-        console.log(res.options,address);
+        console.log(res.options.address);
     }
-
-})
+});
