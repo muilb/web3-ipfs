@@ -15,6 +15,7 @@ queryES({from: 0, size: 5}, function (err, hits) {
     callMethod(hits, 0);
 
     function callMethod(contracts, index) {
+        console.log(contracts);
         if (contracts[index] === undefined) {
             console.log('End test.');
             process.exit(0);
