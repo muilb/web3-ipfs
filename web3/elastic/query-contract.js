@@ -6,7 +6,7 @@ const moment = require('moment');
 var BoolBuilder = require('./ulity/bool-query');
 
 const indexName = 'contract';
-const type = 'contract1';
+const type = 'contract';
 
 function query(params, cb) {
     var boolQuery = new BoolBuilder();
