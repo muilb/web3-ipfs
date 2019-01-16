@@ -11,11 +11,11 @@ queryES({from: 0, size: 5}, function (err, hits) {
         console.log('Query list contract from ES err\n', err);
         process.exit(0);
     }
-
+    var contractNum = hits.length;
     callMethod(hits, 0);
 
     function callMethod(contracts, index) {
-        console.log(contracts);
+        // console.log(contracts);
         if (contracts[index] === undefined) {
             console.log('End test.');
             process.exit(0);
@@ -41,13 +41,13 @@ queryES({from: 0, size: 5}, function (err, hits) {
                     } else {
                         console.log('Indexed Excute method of contract\t', contract.address);
                     }
-                    callMethod(contracts, index++);
-                    // if (i++ < contractNum) {
-                    //     createAndIndex(i);
-                    // } else {
-                    //     console.log('End test');
-                    //     process.exit(0);
-                    // }
+                    // callMethod(contracts, index++);
+                    if (index++ < contractNum) {
+                        callMethod(index);
+                    } else {
+                        console.log('End test');
+                        process.exit(0);
+                    }
                 });
             }
         });

@@ -4,5 +4,5 @@
 console.log('Test query function at ulity/query\n');
 require('../query-contract')({}, function (err, res) {
     console.log('Error\t', err);
-    console.log(res);
+    console.log(res, res.length);
 });
