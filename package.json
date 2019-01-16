@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./web3/ipfs_test/create-index-elastic.js",
-    "test_create": "node ./web3/ipfs_test/create-index-elastic.js"
+    "test_create": "node ./web3/ipfs_test/create-index-elastic.js",
+    "test_query": "node ./web3/elastic/test/query.js",
+    "test_excute": "node ./web3/ipfs_test/excute-from-es.js"
   },
   "dependencies": {
     "debug": "~2.2.0",

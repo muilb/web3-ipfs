@@ -16,7 +16,7 @@
  * Hoac dung docker run --env-file filename.list
  * (name=value on line)*/
 var wsHost = process.env.WS_HOST || "ws://localhost";
-var wsPort = process.env.WS_PORT || "8546";
+var wsPort = process.env.WS_PORT || "8545";
 var esHost = process.env.ES_HOST || "localhost";
 var esPort = process.env.ES_PORT || "9200";
 var ethAccount = process.env.ETH_ACCOUNT || '';

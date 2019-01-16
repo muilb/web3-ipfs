@@ -16,8 +16,13 @@ const fs = require('fs');
 //     console.log('Tra ve sau khi create', res);
 // });
 
-// show balance
-require('./web3/show-balance')();
+// // show balance
+// require('./web3/show-balance')();
+// show balance async
+require('./web3/show-balance')(function (err, res) {
+    console.log("Err: ", err);
+    console.log("Ok: ", res);
+});
 //
 // // check transaction
 // require('./web3/send-transaction')(function (err, res) {

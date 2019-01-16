@@ -23,6 +23,37 @@ function getAllBalance(cb) {
         console.log("error on get accounts");
     });
 }
+/**Su dung de quy de async toan bo gia tri*/
+function getAllBalanceAsync(cb) {
+    var web3 = new Web3();
+    web3.setProvider(wsprovider);
+    var BN = web3.utils.BN;
+    web3.eth.personal.getAccounts().then(function (eths) {
+        getBalance(eths, 0, [], cb);
+    }).catch(function (err) {
+        cb(err)
+    });
+    
+    function getBalance(eths, index, result, cb) {
+        if (eths[index] === undefined) {
+            cb(null, result);
+        } else {
+            web3.eth.getBalance(eths[index]).then(function (balance) {
+                result.push({
+                    address: eths[index],
+                    balance: web3.utils.fromWei(new BN(balance).toString(), "ether")
+                });
+
+                index++;
+                getBalance(eths,index, result, cb);
+
+            }).catch(function (err) {
+                cb(err);
+                // console.log("---> eth.accounts["+i+"]: " + e + " \tbalance: " + "Error on get " + err);
+            });
+        }
+    }
+}
 // async function showBalance(cb) {
 //     var web3 = new Web3();
 //     web3.setProvider(wsprovider);
@@ -43,4 +74,4 @@ function getAllBalance(cb) {
 //     }
 // }
 
-module.exports = getAllBalance;
+module.exports = getAllBalanceAsync;
